@@ -6,10 +6,36 @@
         <UseWPF>true</UseWPF>
         <UseWindowsForms>true</UseWindowsForms>
         <Nullable>enable</Nullable>
+        <PublishSingleFile>true</PublishSingleFile>
+        <SelfContained>true</SelfContained>
+        <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+        <PublishTrimmed>false</PublishTrimmed>
+        <PublishReadyToRun>false</PublishReadyToRun>
+        <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+        <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+        <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+        <IncludeSymbols>false</IncludeSymbols>
+        <DebugType>none</DebugType>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="SharpCompress" Version="0.32.2"/>
+    </ItemGroup>
+
+    <!-- Ensure all content files are included for self-extract -->
+    <ItemGroup>
+        <EmbeddedResource Include="**/*.xaml" />
+    </ItemGroup>
+
+    <!-- Ensure assemblies are properly loaded in single-file deployment -->
+    <ItemGroup>
+        <TrimmerRootAssembly Include="SharpCompress" />
+        <TrimmerRootAssembly Include="SkyrimDataInstaller" />
+    </ItemGroup>
+
+    <!-- Force inclusion of assemblies that might be needed by SharpCompress -->
+    <ItemGroup>
+        <RuntimeHostConfigurationOption Include="System.Globalization.Invariant" Value="false" />
     </ItemGroup>
 
 </Project> 
