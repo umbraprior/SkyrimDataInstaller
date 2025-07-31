@@ -26,3 +26,4 @@ A Windows application for automatically extracting and installing Skyrim data fi
 - .NET 6.0 Runtime
 
 ![Preview](sdi.png)
+![Conflicts](sdi2.png)
