@@ -1,0 +1,41 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SkyrimDataInstaller/1.0.0": {
+        "dependencies": {
+          "SharpCompress": "0.32.2"
+        },
+        "runtime": {
+          "SkyrimDataInstaller.dll": {}
+        }
+      },
+      "SharpCompress/0.32.2": {
+        "runtime": {
+          "lib/net6.0/SharpCompress.dll": {
+            "assemblyVersion": "0.32.2.0",
+            "fileVersion": "0.32.2.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SkyrimDataInstaller/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SharpCompress/0.32.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-MSt6TKAg2c0uFFDtf7oACB4DfvXKq5Cvot2e0wjy5nAiVujpIRQ8laiIqCU/VMRGyytasGzg+nODKTkkDjbr/g==",
+      "path": "sharpcompress/0.32.2",
+      "hashPath": "sharpcompress.0.32.2.nupkg.sha512"
+    }
+  }
+}

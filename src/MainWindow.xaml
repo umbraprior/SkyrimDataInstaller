@@ -1,0 +1,109 @@
+<Window x:Class="SkyrimDataInstaller.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Skyrim Data Installer" Height="600" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <TextBlock Grid.Row="0" Text="Skyrim Data Installer"
+                   FontSize="24" FontWeight="Bold"
+                   HorizontalAlignment="Center" Margin="0,0,0,20" />
+
+        <!-- Archive Selection -->
+        <Grid Grid.Row="1" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="ArchivePathTextBox" Grid.Column="0"
+                     Margin="0,0,10,0" Padding="10,8"
+                     VerticalContentAlignment="Center"
+                     TextChanged="ArchivePathTextBox_TextChanged">
+                <TextBox.Style>
+                    <Style TargetType="TextBox">
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <VisualBrush AlignmentX="Left" AlignmentY="Center" Stretch="None"
+                                                     TileMode="None">
+                                            <VisualBrush.Visual>
+                                                <TextBlock Text="Select an archive file..."
+                                                           Foreground="Gray"
+                                                           FontStyle="Italic"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Left"
+                                                           Margin="10,0,0,0" />
+                                            </VisualBrush.Visual>
+                                        </VisualBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+
+            <Button x:Name="BrowseButton" Grid.Column="1"
+                    Content="Browse" Padding="15,8"
+                    Click="BrowseButton_Click" />
+        </Grid>
+
+        <!-- Scan Button -->
+        <Grid Grid.Row="2" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="ScanButton" Grid.Column="0"
+                    Content="Scan Archives" Padding="20,10"
+                    FontSize="16" FontWeight="Bold"
+                    Background="#007ACC" Foreground="White"
+                    Click="ScanButton_Click"
+                    IsEnabled="False"
+                    Margin="0,0,10,0" />
+
+            <Button x:Name="NextButton" Grid.Column="1"
+                    Content="Next" Padding="20,10"
+                    FontSize="16" FontWeight="Bold"
+                    Background="#28A745" Foreground="White"
+                    Click="NextButton_Click"
+                    IsEnabled="False" />
+        </Grid>
+
+        <!-- Results -->
+        <Grid Grid.Row="3" Margin="0,0,0,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Row="0" Text="Found Files:"
+                       FontSize="16" FontWeight="Bold" Margin="0,0,0,10" />
+
+            <ScrollViewer x:Name="ResultsScrollViewer" Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                <TextBox x:Name="ResultsTextBox"
+                         IsReadOnly="True"
+                         FontFamily="Consolas"
+                         Background="#F5F5F5"
+                         Padding="10" />
+            </ScrollViewer>
+        </Grid>
+
+        <!-- Status -->
+        <TextBlock x:Name="StatusTextBlock" Grid.Row="4"
+                   Text="Ready to scan archives"
+                   HorizontalAlignment="Center"
+                   FontStyle="Italic" />
+    </Grid>
+</Window>
