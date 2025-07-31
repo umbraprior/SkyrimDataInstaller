@@ -24,3 +24,5 @@ A Windows application for automatically extracting and installing Skyrim data fi
 
 - Windows 10 or later
 - .NET 6.0 Runtime
+
+![Preview](sdi.png)
